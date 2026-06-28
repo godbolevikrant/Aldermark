@@ -1,0 +1,493 @@
+/* ===========================================================
+   ALDERMARK — Design System
+   Palette: ink navy / ivory / gold / sage / charcoal
+   Type: Fraunces (display) + Inter (body) + Space Mono (utility)
+   Signature motif: hairline "ledger" rules + numbered indices
+   =========================================================== */
+
+:root{
+  --ink:        #14213D;
+  --ink-soft:   #1F2E50;
+  --ivory:      #FBF8F3;
+  --ivory-dim:  #F3EEE3;
+  --gold:       #C08A3E;
+  --gold-soft:  #DDB877;
+  --sage:       #7C9C8B;
+  --charcoal:   #2B2D2F;
+  --line:       #E1D9C8;
+  --line-dark:  rgba(251,248,243,0.18);
+
+  --font-display: "Fraunces", "Georgia", serif;
+  --font-body: "Inter", -apple-system, sans-serif;
+  --font-mono: "Space Mono", monospace;
+
+  --radius: 2px;
+  --container-max: 1180px;
+}
+
+*{ box-sizing: border-box; }
+
+html{ scroll-behavior: smooth; }
+
+body{
+  font-family: var(--font-body);
+  color: var(--charcoal);
+  background: var(--ivory);
+  font-size: 16px;
+  line-height: 1.65;
+}
+
+h1, h2, h3, h4, .display{
+  font-family: var(--font-display);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+  line-height: 1.12;
+}
+
+.lede{
+  font-size: 1.15rem;
+  color: #5B5E60;
+  font-weight: 400;
+}
+
+a{ color: var(--ink); text-decoration: none; }
+a:hover{ color: var(--gold); }
+
+.container-custom{
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding-left: 24px;
+  padding-right: 24px;
+}
+
+/* ---------- Utility / eyebrow labels ---------- */
+.eyebrow{
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold);
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+.eyebrow::before{
+  content: "";
+  width: 22px;
+  height: 1px;
+  background: var(--gold);
+  display: inline-block;
+}
+
+/* ---------- Ledger rule (signature motif) ---------- */
+.ledger-rule{
+  position: relative;
+  height: 1px;
+  background: var(--line);
+  margin: 0;
+  width: 100%;
+}
+.ledger-rule::after{
+  content: "";
+  position: absolute;
+  left: 0; top: -1.5px;
+  width: 46px;
+  height: 4px;
+  background: var(--gold);
+}
+.ledger-rule.on-dark{ background: var(--line-dark); }
+.ledger-rule.on-dark::after{ background: var(--gold-soft); }
+
+.idx{
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--gold);
+  letter-spacing: 0.05em;
+}
+
+/* =================== NAVBAR =================== */
+.navbar-aldermark{
+  background: var(--ivory);
+  border-bottom: 1px solid var(--line);
+  padding: 20px 0;
+}
+.navbar-aldermark .navbar-brand{
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.45rem;
+  color: var(--ink);
+  letter-spacing: -0.01em;
+}
+.navbar-aldermark .navbar-brand span{ color: var(--gold); }
+
+.navbar-aldermark .nav-link{
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--charcoal);
+  margin: 0 14px;
+  padding: 6px 0 !important;
+  position: relative;
+}
+.navbar-aldermark .nav-link.active,
+.navbar-aldermark .nav-link:hover{ color: var(--ink); }
+.navbar-aldermark .nav-link.active::after{
+  content: "";
+  position: absolute;
+  left: 0; bottom: 0;
+  width: 100%; height: 2px;
+  background: var(--gold);
+}
+
+.btn-gold{
+  font-family: var(--font-mono);
+  font-size: 0.76rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  background: var(--ink);
+  color: var(--ivory);
+  border: 1px solid var(--ink);
+  padding: 11px 24px;
+  border-radius: var(--radius);
+  transition: all .25s ease;
+  display: inline-block;
+}
+.btn-gold:hover{
+  background: var(--gold);
+  border-color: var(--gold);
+  color: var(--ink);
+}
+.btn-outline-aldermark{
+  font-family: var(--font-mono);
+  font-size: 0.76rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  background: transparent;
+  color: var(--ink);
+  border: 1px solid var(--ink);
+  padding: 10px 23px;
+  border-radius: var(--radius);
+  transition: all .25s ease;
+  display: inline-block;
+}
+.btn-outline-aldermark:hover{
+  background: var(--ink);
+  color: var(--ivory);
+}
+.btn-gold-on-dark{
+  font-family: var(--font-mono);
+  font-size: 0.76rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  background: var(--gold);
+  color: var(--ink);
+  border: 1px solid var(--gold);
+  padding: 11px 24px;
+  border-radius: var(--radius);
+  transition: all .25s ease;
+  display: inline-block;
+}
+.btn-gold-on-dark:hover{
+  background: transparent;
+  color: var(--gold);
+}
+
+/* =================== HERO =================== */
+.hero{
+  padding: 96px 0 80px;
+  background: var(--ivory);
+}
+.hero h1{
+  font-size: clamp(2.4rem, 4.5vw, 3.85rem);
+  max-width: 620px;
+}
+.hero-ledger-card{
+  background: var(--ink);
+  color: var(--ivory);
+  padding: 40px 36px;
+  border-radius: var(--radius);
+}
+.hero-ledger-card .stat-row{
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 16px 0;
+}
+.hero-ledger-card .stat-row .num{
+  font-family: var(--font-display);
+  font-size: 2.1rem;
+  color: var(--gold-soft);
+}
+.hero-ledger-card .stat-row .label{
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: rgba(251,248,243,0.65);
+  text-align: right;
+  max-width: 140px;
+}
+
+/* =================== SECTIONS =================== */
+.section{ padding: 88px 0; }
+.section-dark{
+  background: var(--ink);
+  color: var(--ivory);
+}
+.section-dark h2, .section-dark h3{ color: var(--ivory); }
+.section-dim{ background: var(--ivory-dim); }
+
+.section-head{
+  margin-bottom: 56px;
+}
+.section-head h2{
+  font-size: clamp(1.8rem, 3vw, 2.5rem);
+  max-width: 560px;
+}
+
+/* ---------- Service / feature card ---------- */
+.card-aldermark{
+  background: var(--ivory);
+  border: 1px solid var(--line);
+  padding: 36px 32px;
+  height: 100%;
+  transition: border-color .25s ease, transform .25s ease;
+}
+.card-aldermark:hover{
+  border-color: var(--gold);
+  transform: translateY(-3px);
+}
+.card-aldermark .idx{ display: block; margin-bottom: 18px; }
+.card-aldermark h3{ font-size: 1.25rem; margin-bottom: 12px; }
+.card-aldermark p{ color: #5B5E60; margin-bottom: 0; font-size: 0.96rem; }
+
+.card-dark{
+  background: var(--ink-soft);
+  border: 1px solid var(--line-dark);
+  padding: 36px 32px;
+  height: 100%;
+  color: var(--ivory);
+}
+.card-dark p{ color: rgba(251,248,243,0.7); }
+
+/* ---------- Quote / testimonial ---------- */
+.blockquote-aldermark{
+  font-family: var(--font-display);
+  font-size: clamp(1.3rem, 2.4vw, 1.9rem);
+  color: var(--ink);
+  line-height: 1.4;
+  max-width: 760px;
+}
+.blockquote-aldermark cite{
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-top: 22px;
+  font-style: normal;
+}
+
+/* ---------- Process / numbered list ---------- */
+.process-row{
+  display: flex;
+  align-items: flex-start;
+  gap: 28px;
+  padding: 28px 0;
+  border-bottom: 1px solid var(--line);
+}
+.process-row:first-child{ border-top: 1px solid var(--line); }
+.process-row .idx{ font-size: 1rem; min-width: 36px; padding-top: 4px; }
+.process-row h4{ font-family: var(--font-display); font-size: 1.2rem; margin-bottom: 6px; }
+.process-row p{ color: #5B5E60; margin-bottom: 0; max-width: 560px; }
+
+/* ---------- Team ---------- */
+.team-card .photo{
+  width: 100%;
+  aspect-ratio: 4/5;
+  background: linear-gradient(155deg, var(--ink) 0%, var(--ink-soft) 60%, var(--gold) 150%);
+  border-radius: var(--radius);
+  margin-bottom: 18px;
+  position: relative;
+  overflow: hidden;
+}
+.team-card .photo::after{
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(115deg, rgba(251,248,243,0.05) 0 2px, transparent 2px 14px);
+}
+.team-card h4{ font-family: var(--font-display); font-size: 1.1rem; margin-bottom: 2px; }
+.team-card .role{
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+/* =================== FORMS =================== */
+.form-aldermark label{
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink);
+  margin-bottom: 8px;
+  display: block;
+}
+.form-aldermark .form-control,
+.form-aldermark .form-select{
+  background: var(--ivory);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 13px 16px;
+  font-size: 0.96rem;
+  color: var(--charcoal);
+}
+.form-aldermark .form-control:focus,
+.form-aldermark .form-select:focus{
+  border-color: var(--gold);
+  box-shadow: 0 0 0 3px rgba(192,138,62,0.15);
+}
+.form-aldermark textarea.form-control{ resize: vertical; }
+
+/* ---------- Auth split screen ---------- */
+.auth-wrap{
+  min-height: 100vh;
+  display: flex;
+}
+.auth-side{
+  flex: 1 1 46%;
+  background: var(--ink);
+  color: var(--ivory);
+  padding: 56px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  overflow: hidden;
+}
+.auth-side::after{
+  content: "";
+  position: absolute;
+  right: -120px; bottom: -120px;
+  width: 360px; height: 360px;
+  border: 1px solid var(--line-dark);
+  border-radius: 50%;
+}
+.auth-side::before{
+  content: "";
+  position: absolute;
+  right: -40px; bottom: -40px;
+  width: 220px; height: 220px;
+  border: 1px solid var(--gold-soft);
+  border-radius: 50%;
+  opacity: 0.4;
+}
+.auth-form-col{
+  flex: 1 1 54%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 56px 24px;
+  background: var(--ivory);
+}
+.auth-form-card{ width: 100%; max-width: 420px; }
+.auth-quote{
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  line-height: 1.4;
+  max-width: 380px;
+  position: relative; z-index: 1;
+}
+.auth-brand{
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  position: relative; z-index: 1;
+}
+.auth-brand span{ color: var(--gold-soft); }
+.auth-meta{
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  color: rgba(251,248,243,0.5);
+  position: relative; z-index: 1;
+}
+
+/* =================== FOOTER =================== */
+.footer-aldermark{
+  background: var(--ink);
+  color: rgba(251,248,243,0.7);
+  padding: 64px 0 28px;
+}
+.footer-aldermark h5{
+  font-family: var(--font-display);
+  color: var(--ivory);
+  font-size: 1.3rem;
+  margin-bottom: 16px;
+}
+.footer-aldermark .col-label{
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gold-soft);
+  margin-bottom: 18px;
+  display: block;
+}
+.footer-aldermark a{ color: rgba(251,248,243,0.7); }
+.footer-aldermark a:hover{ color: var(--gold-soft); }
+.footer-aldermark ul{ list-style: none; padding: 0; margin: 0; }
+.footer-aldermark li{ margin-bottom: 10px; font-size: 0.92rem; }
+.footer-bottom{
+  margin-top: 48px;
+  padding-top: 24px;
+  border-top: 1px solid var(--line-dark);
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  letter-spacing: 0.04em;
+  color: rgba(251,248,243,0.45);
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+/* =================== PAGE HEADER (sub pages) =================== */
+.page-header{
+  background: var(--ink);
+  color: var(--ivory);
+  padding: 64px 0 56px;
+}
+.page-header h1{
+  color: var(--ivory);
+  font-size: clamp(2rem, 4vw, 3rem);
+}
+.breadcrumb-aldermark{
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: rgba(251,248,243,0.55);
+}
+.breadcrumb-aldermark a{ color: rgba(251,248,243,0.55); }
+.breadcrumb-aldermark a:hover{ color: var(--gold-soft); }
+
+/* =================== RESPONSIVE =================== */
+@media (max-width: 991.98px){
+  .auth-side{ display: none; }
+  .auth-form-col{ flex: 1 1 100%; }
+  .hero{ padding: 64px 0 48px; }
+  .section{ padding: 64px 0; }
+}
+@media (max-width: 575.98px){
+  .hero-ledger-card{ padding: 28px 24px; }
+}
+
+@media (prefers-reduced-motion: reduce){
+  *{ transition: none !important; scroll-behavior: auto !important; }
+}
